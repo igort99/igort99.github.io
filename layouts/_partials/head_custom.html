@@ -1,38 +1,70 @@
-<!-- site is already dark: tell Dark Reader not to recolor it -->
+<!-- site handles dark mode itself: tell Dark Reader not to recolor it -->
 <meta name="darkreader-lock">
 <style>
-  /* Force dark theme */
-  :root { color-scheme: dark; }
-
-  html, body {
-    background: #1a1a1a;
-    color: #e0e0e0;
+  /* Theme follows the visitor's OS setting: dark by default, light on request */
+  :root {
+    color-scheme: dark light;
+    --bg: #1a1a1a;
+    --fg: #e0e0e0;
+    --fg-muted: #b0b0b0;
+    --link: #6cb6ff;
+    --link-visited: #a68cff;
+    --surface: #2a2a2a;
+    --surface-alt: #222;
+    --border: #444;
+    --border-strong: #999;
+    --pre-border: #333;
+    --pre-shadow: #111;
+    --quote-bar: #555;
   }
 
-  a { color: #6cb6ff; }
-  a:visited { color: #a68cff; }
+  @media (prefers-color-scheme: light) {
+    :root {
+      color-scheme: light;
+      --bg: #fff;
+      --fg: #222;
+      --fg-muted: #555;
+      --link: #0b5cad;
+      --link-visited: #6a3fb5;
+      --surface: #eee;
+      --surface-alt: #f9f9f9;
+      --border: #ddd;
+      --border-strong: #666;
+      --pre-border: #ddd;
+      --pre-shadow: #eee;
+      --quote-bar: #ccc;
+    }
+  }
+
+  html, body {
+    background: var(--bg);
+    color: var(--fg);
+  }
+
+  a { color: var(--link); }
+  a:visited { color: var(--link-visited); }
 
   /* nav menu buttons */
   .menu a {
-    background: #2a2a2a;
-    color: #e0e0e0;
+    background: var(--surface);
+    color: var(--fg);
   }
 
   /* post title/date block — blend into page, no boxed background */
   .article-meta {
     background: none;
-    color: #e0e0e0;
+    color: var(--fg);
   }
 
-  hr { color: #444; border-color: #444; }
+  hr { color: var(--border); border-color: var(--border); }
 
   /* code */
   pre {
-    border: 1px solid #333;
-    box-shadow: 5px 5px 5px #111;
-    background: #222;
+    border: 1px solid var(--pre-border);
+    box-shadow: 5px 5px 5px var(--pre-shadow);
+    background: var(--surface-alt);
   }
-  code { background: #2a2a2a; color: #e0e0e0; }
+  code { background: var(--surface); color: var(--fg); }
   pre code { background: none; }
 
   /* images: centered, replaces the center-img.js helper */
@@ -40,16 +72,16 @@
 
   /* misc elements */
   blockquote {
-    background: #222;
-    border-left: 5px solid #555;
+    background: var(--surface-alt);
+    border-left: 5px solid var(--quote-bar);
   }
 
   table {
-    border-top: 1px solid #999;
-    border-bottom: 1px solid #999;
+    border-top: 1px solid var(--border-strong);
+    border-bottom: 1px solid var(--border-strong);
   }
-  table thead th { border-bottom: 1px solid #444; }
-  thead, tfoot, tr:nth-child(even) { background: #2a2a2a; }
+  table thead th { border-bottom: 1px solid var(--border); }
+  thead, tfoot, tr:nth-child(even) { background: var(--surface); }
 
   /* tables and figures span the text column */
   main table { width: 100%; border-collapse: collapse; }
@@ -59,6 +91,6 @@
   figure { margin: 1.5em 0; }
   figure img, p > img:only-child { display: block; width: 100%; height: auto; }
   figure { display: flex; flex-direction: column; }
-  figcaption { order: -1; text-align: center; font-size: .9em; color: #b0b0b0; margin: 0 0 .5em; }
+  figcaption { order: -1; text-align: center; font-size: .9em; color: var(--fg-muted); margin: 0 0 .5em; }
   figcaption p { margin: 0; }
 </style>
