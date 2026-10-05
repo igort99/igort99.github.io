@@ -4,7 +4,7 @@ date: 2026-10-05
 draft: false
 slug: looped-cot-faithfulness
 ---
-TL;DR: they use their reasoning.
+TL;DR: Huginn uses its reasoning. More loops didn't change that.
 
 - [How I got this idea](#how-i-got-this-idea)
 - [What is a looped transformer](#what-is-a-looped-transformer)
@@ -16,7 +16,7 @@ TL;DR: they use their reasoning.
 
 ### How I got this idea
 
-So I was browsing HackerNews the other day and read a blog about the gpt6-astra [[1]](https://magazine.sebastianraschka.com/p/gpt-6-astra-looped-transformers-and) that speculated Astra may be using looped transformer logic introduced by earlier research work [[2]](https://arxiv.org/abs/1807.03819). I like reading these since new ideas always come to my mind. This topic was somewhat familiar to me, but I was curious what is all the fuss about looped transformers hiding their reasoning traces and that they may be inferring most from their hidden states. Naturally I would search the web to try to find some research that already checked this out, but I couldn't find any that tested exactly this (would like to see if I missed some somehow; there is just too much research going on at any given moment). The closest I found is Lu et al. [[10]](https://arxiv.org/abs/2507.02199), who looked inside Huginn with the reasoning turned off and found little sign of it reasoning in its loop. But nobody had checked whether a looped model actually uses the reasoning it *writes*. So this post is about how I tried to verify and check this, but first let's shortly jump in to see what the hell a looped transformer is.
+So I was browsing HackerNews the other day and read a blog about the gpt6-astra [[1]](https://magazine.sebastianraschka.com/p/gpt-6-astra-looped-transformers-and) that speculated Astra may be using looped transformer logic introduced by earlier research work [[2]](https://arxiv.org/abs/1807.03819). I like reading these since new ideas always come to my mind. This topic was somewhat familiar to me, but I was curious what is all the fuss about looped transformers hiding their reasoning traces and that they may be inferring most from their hidden states. Naturally I would search the web to try to find some research that already checked this out, but I couldn't find any that tested exactly this (would like to see if I missed some somehow; there is just too much research going on at any given moment). The closest I found is Lu et al. [[10]](https://arxiv.org/abs/2507.02199), who looked inside Huginn with the reasoning turned off and found little sign of it reasoning in its loop. But I couldn't find anyone who checked whether a looped model actually uses the reasoning it *writes*. So this post is about how I tried to verify and check this, but first let's shortly jump in to see what the hell a looped transformer is.
 
 ### What is a looped transformer
 
