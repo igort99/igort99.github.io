@@ -1,3 +1,9 @@
+<!-- SEO: search snippet, canonical URL, link previews -->
+<meta name="description" content="{{ .Description | default site.Params.description | plainify | truncate 160 }}">
+<link rel="canonical" href="{{ .Permalink }}">
+{{ template "_internal/opengraph.html" . }}
+{{ template "_internal/twitter_cards.html" . }}
+
 <!-- site handles dark mode itself: tell Dark Reader not to recolor it -->
 <meta name="darkreader-lock">
 <style>

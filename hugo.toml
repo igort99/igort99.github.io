@@ -2,6 +2,7 @@ baseURL = 'https://igort99.github.io/'
 languageCode = 'en-us'
 title = "Igor's blog"
 theme = "hugo-xmin"
+enableRobotsTXT = true
 
 [markup.goldmark.renderer]
   unsafe = true
@@ -24,5 +25,5 @@ theme = "hugo-xmin"
     weight = 3
 
 [params]
-  description = "A website built through Hugo and blogdown."
+  description = "Igor Tomic's blog: graveyard of my ideas"
   footer = "&copy; [Igor](https://igort99.github.io/) 2026 -- {Year} | [Github](https://github.com/igort99)"
