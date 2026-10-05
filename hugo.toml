@@ -1,0 +1,28 @@
+baseURL = 'https://igort99.github.io/'
+languageCode = 'en-us'
+title = "Igor's blog"
+theme = "hugo-xmin"
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[permalinks]
+  posts = "/posts/:year/:month/:day/:slug/"
+
+[menu]
+  [[menu.main]]
+    name = "Home"
+    url = ""
+    weight = 1
+  [[menu.main]]
+    name = "Posts"
+    url = "posts/"
+    weight = 2
+  [[menu.main]]
+    name = "About"
+    url = "about/"
+    weight = 3
+
+[params]
+  description = "A website built through Hugo and blogdown."
+  footer = "&copy; [Igor](https://igort99.github.io/) 2026 -- {Year} | [Github](https://github.com/igort99)"

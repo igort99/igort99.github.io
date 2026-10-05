@@ -1,0 +1,62 @@
+<style>
+  /* Force dark theme */
+  :root { color-scheme: dark; }
+
+  html, body {
+    background: #1a1a1a;
+    color: #e0e0e0;
+  }
+
+  a { color: #6cb6ff; }
+  a:visited { color: #a68cff; }
+
+  /* nav menu buttons */
+  .menu a {
+    background: #2a2a2a;
+    color: #e0e0e0;
+  }
+
+  /* post title/date block — blend into page, no boxed background */
+  .article-meta {
+    background: none;
+    color: #e0e0e0;
+  }
+
+  hr { color: #444; border-color: #444; }
+
+  /* code */
+  pre {
+    border: 1px solid #333;
+    box-shadow: 5px 5px 5px #111;
+    background: #222;
+  }
+  code { background: #2a2a2a; color: #e0e0e0; }
+  pre code { background: none; }
+
+  /* images: centered, replaces the center-img.js helper */
+  p > img:only-child { display: block; margin: 0 auto; }
+
+  /* misc elements */
+  blockquote {
+    background: #222;
+    border-left: 5px solid #555;
+  }
+
+  table {
+    border-top: 1px solid #999;
+    border-bottom: 1px solid #999;
+  }
+  table thead th { border-bottom: 1px solid #444; }
+  thead, tfoot, tr:nth-child(even) { background: #2a2a2a; }
+
+  /* tables and figures span the text column */
+  main table { width: 100%; border-collapse: collapse; }
+  th:first-child, td:first-child { white-space: nowrap; }
+  /* table captions: the paragraph right before a table */
+  p:has(+ table) { text-align: center; }
+  figure { margin: 1.5em 0; }
+  figure img, p > img:only-child { display: block; width: 100%; height: auto; }
+  figure { display: flex; flex-direction: column; }
+  figcaption { order: -1; text-align: center; font-size: .9em; color: #b0b0b0; margin: 0 0 .5em; }
+  figcaption p { margin: 0; }
+</style>
